@@ -1,8 +1,6 @@
-"use client"
-
 import { useState, useEffect } from "react";
 
-const useMovies = (endpoint = 'now_playing') => {
+const useMovies = (endpoint = "now_playing") => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,15 +16,22 @@ const useMovies = (endpoint = 'now_playing') => {
       }
       const data = await response.json();
       setMovies(data.results);
-      setLoading(false);
     } catch (error) {
       setError(error.message);
+    } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchMovies();
+    let isMounted = true; // Flag para comprobar si el componente está montado
+    if (isMounted) {
+      fetchMovies();
+    }
+
+    return () => {
+      isMounted = false; // Al desmontar, evitamos actualizar el estado
+    };
   }, [endpoint]);
 
   return { movies, loading, error };
