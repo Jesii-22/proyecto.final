@@ -5,7 +5,7 @@ export default function MainContent({ movies }) {
         <h2 className="text-2xl font-bold mb-4">Películas en Cartelera</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {movies.map((movie) => (
-            movie.poster_path ? (  // Verificamos que 'poster_path' esté disponible
+            movie.poster_path ? (  
               <div key={movie.id} className="relative w-full aspect-video bg-cover bg-center rounded"
                 style={{
                   backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`,

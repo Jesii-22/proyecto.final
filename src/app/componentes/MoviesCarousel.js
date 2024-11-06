@@ -5,16 +5,16 @@ export default function MoviesCarousel({ movies }) {
   const carouselRef = useRef(null);
 
   const scrollLeft = () => {
-    carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    carouselRef.current.scrollBy({ left: -200, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    carouselRef.current.scrollBy({ left: 200, behavior: "smooth" });
   };
 
   return (
     <div className="relative w-full py-5">
-      <h2 className="text-2xl font-bold mb-4 px-4">Películas Más Vistas</h2>
+     <h2 className="text-2xl font-bold mb-4 px-4 text-gradient hover:bg-yellow-500 hover:text-black transition-all duration-300"> Películas Más Vistas</h2>
       <div className="relative overflow-x-hidden">
         <button
           className="absolute left-0 h-full z-10 px-2 bg-black bg-opacity-50"

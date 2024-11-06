@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028"
+    "framer-motion": "^11.11.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.25.9",
@@ -21,4 +22,3 @@
     "tailwindcss": "^3.4.1"
   }
 }
-

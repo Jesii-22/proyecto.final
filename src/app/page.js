@@ -4,6 +4,7 @@ import MainFeaturedMovie from "./componentes/MainFeaturedMovie";
 import MoviesCarousel from "./componentes/MoviesCarousel";  
 import MoviesGallery from "./componentes/MoviesGallery";
 import Header from "./componentes/Header";
+import Footer from "./componentes/Footer"; // Importa el Footer aquí
 import useMovies from "./Hooks/useMovies";
 import Link from "next/link";
 
@@ -22,7 +23,9 @@ export default function Home() {
       {featuredMovie && <MainFeaturedMovie movie={featuredMovie} />}
       {popularMovies && <MoviesCarousel movies={popularMovies} />}
    
-      <MoviesGallery movies={movies} />  {/* Aquí seguimos pasando las películas */}
+      <MoviesGallery movies={movies} />  
+      
+      <Footer /> 
     </div>
   );
 }
