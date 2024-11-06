@@ -1,25 +1,25 @@
-import MovieCard from "./MovieCard";
-
+import Link from "next/link";
 export default function MainContent({ movies }) {
-  return (
-    <div className="px-40 flex flex-1 justify-center py-5">
-      <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-        <div className="text-center">
-          
-          {/* mantener los botones de 'Trailer' y 'Get Tickets' ??? */}
-        </div>
-        
-        <h2 className="text-[#FFFFFF] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-            Películas más vistas 
-        </h2>
-        <div className="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
-          <div className="flex items-stretch p-4 gap-3">
-            {movies.map(movie => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
-          </div>
+    return (
+      <div className="py-5 px-4">
+        <h2 className="text-2xl font-bold mb-4">Películas en Cartelera</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {movies.map((movie) => (
+            movie.poster_path ? (  // Verificamos que 'poster_path' esté disponible
+              <div key={movie.id} className="relative w-full aspect-video bg-cover bg-center rounded"
+                style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`,
+                }}>
+                <p className="text-center mt-2 font-medium">{movie.title}</p>
+              </div>
+            ) : (
+              <div key={movie.id} className="relative w-full aspect-video bg-gray-500 rounded">
+                <p className="text-center mt-2 font-medium">No disponible</p>
+              </div>
+            )
+          ))}
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+  

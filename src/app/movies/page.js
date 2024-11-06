@@ -1,19 +1,19 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
 const MovieDetail = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const router = useRouter();
-  const { id } = router.query;
-
+  const { id } = router.query;  // Obtén el id de la URL
+  
   useEffect(() => {
     if (id) {
       const fetchMovieDetails = async () => {
-        const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+        const apiKey = "098839c0ee7f3effbf72bdd6b66deca4"; 
         const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=es-ES`;
 
         try {

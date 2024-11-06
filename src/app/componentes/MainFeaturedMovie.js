@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function MainFeaturedMovie({ movie }) {
   return (
     <div className="relative w-full">
-      <Link href={`/movies/${movie.id}`}>
+      <Link href={`/movies/${movie.id}`} className="group">
         <div
           className="w-full aspect-video bg-cover bg-center rounded"
           style={{

@@ -28,9 +28,7 @@ export default function MoviesCarousel({ movies }) {
         >
           {movies.map((movie) => (
             <div key={movie.id} className="min-w-[200px] flex-shrink-0">
-              <Link 
-                href={{ pathname: "/movies/[id]", query: { id: movie.id } }}
-              >
+            <Link href={`/movies/${movie.id}`} className="group">
                 <div
                   className="w-full aspect-video bg-cover bg-center rounded"
                   style={{
